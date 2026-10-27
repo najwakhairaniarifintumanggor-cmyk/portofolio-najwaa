@@ -1,0 +1,520 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Najwa Khairani | Personal Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --cream: #fffaf5;
+            --pink: #f0dcd6;
+            --brown: #765348;
+            --dark: #49352f;
+            --soft: #fcf0eb;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: rgba(255, 250, 245, 0.96);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid var(--pink);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--brown);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+        }
+
+        nav ul a {
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul a:hover {
+            color: #bd8175;
+        }
+
+        section {
+            padding: 80px 8%;
+            scroll-margin-top: 70px;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background: linear-gradient(135deg, #fffaf5, #f8e9e3);
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 30px;
+            background: var(--pink);
+            color: var(--brown);
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(35px, 5vw, 58px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #b57d71;
+        }
+
+        .hero p {
+            margin-bottom: 15px;
+            color: #705d55;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            margin-top: 18px;
+            background: var(--brown);
+            color: white;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #a7796d;
+            transform: translateY(-3px);
+        }
+
+        .hero-photo {
+            flex: 0 0 300px;
+            height: 370px;
+            border: 8px solid white;
+            border-radius: 150px 150px 25px 25px;
+            background: #ead2c8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 15px 40px #76534815;
+            color: var(--brown);
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-family: Georgia, serif;
+            font-size: 34px;
+            color: var(--brown);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #8d7770;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            padding: 35px;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 8px 30px #7653480c;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #f0e0d9;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px #76534812;
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            color: var(--brown);
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .card .subtitle {
+            font-size: 13px;
+            color: #b17c70;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #705d55;
+            font-size: 15px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .skill {
+            padding: 12px 22px;
+            background: white;
+            border: 1px solid var(--pink);
+            border-radius: 30px;
+            color: var(--brown);
+        }
+
+        .closing {
+            text-align: center;
+            background: linear-gradient(135deg, #f8e9e3, #fff6ef);
+        }
+
+        .closing h2 {
+            font-family: Georgia, serif;
+            font-size: 30px;
+            color: var(--brown);
+            margin-bottom: 20px;
+        }
+
+        .closing p {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 8%;
+            background: var(--brown);
+            color: white;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul a {
+                font-size: 12px;
+            }
+
+            section {
+                padding: 55px 6%;
+            }
+
+            .hero {
+                min-height: auto;
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .hero-photo {
+                flex: none;
+                width: 230px;
+                height: 280px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI -->
+    <nav>
+        <a href="#home" class="logo">Najwa's Portfolio ♡</a>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#achievement">Achievement</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HALAMAN UTAMA -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <span class="tag">Hello, welcome to my portfolio!</span>
+
+            <h1>Najwa Khairani<br>
+                <span>Arifin Tumanggor</span>
+            </h1>
+
+            <p>
+                Terus Berkembang, Maju, dan Mencoba Hal-Hal Baru!
+            </p>
+
+            <p>
+                Early Childhood Education · Batch 2024<br>
+                Universitas Negeri Medan
+            </p>
+
+            <p><strong>Status:</strong> Undergraduate Student</p>
+
+            <a href="#about" class="button">Kenali Aku Lebih Dekat ♡</a>
+        </div>
+
+        <div class="hero-photo">
+            <!-- Ganti bagian ini dengan foto kamu -->
+            <span>♡<br>Letakkan foto<br>terbaikmu di sini<br>♡</span>
+        </div>
+    </section>
+
+    <!-- TENTANG SAYA -->
+    <section id="about">
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Sedikit cerita tentang diriku ✿</p>
+        </div>
+
+        <div class="about-content">
+            <p>
+                Halo semuanya! Aku Najwa Khairani Arifin Tumanggor,
+                mahasiswa Pendidikan Guru Pendidikan Anak Usia Dini
+                angkatan 2024 di Universitas Negeri Medan.
+            </p>
+
+            <p>
+                Aku adalah pribadi yang ingin terus belajar,
+                berkembang, dan mencoba berbagai hal baru.
+                Bagiku, setiap pengalaman merupakan kesempatan
+                untuk menambah pengetahuan, melatih kemampuan,
+                dan mengenal potensi diri.
+            </p>
+
+            <p>
+                Aku percaya bahwa menjadi lebih baik adalah sebuah
+                proses. Tidak harus selalu cepat, yang penting
+                tetap berusaha, berani mencoba, dan tidak berhenti
+                belajar.
+            </p>
+
+            <p>
+                <em>
+                    "Pelan-pelan, satu langkah demi satu langkah,
+                    aku akan terus bertumbuh menjadi versi terbaik
+                    dari diriku sendiri."
+                </em>
+            </p>
+        </div>
+    </section>
+
+    <!-- PENGALAMAN -->
+    <section id="experience">
+        <div class="section-title">
+            <h2>My Experiences</h2>
+            <p>Belajar dari setiap kesempatan yang datang ♡</p>
+        </div>
+
+        <div class="cards">
+
+            <article class="card">
+                <div class="card-icon">🌷</div>
+                <h3>Pengalaman Magang</h3>
+                <div class="subtitle">
+                    TK Balita Schooling · 3 Bulan
+                </div>
+                <p>
+                    Menjalani magang selama tiga bulan di TK Balita
+                    Schooling untuk mengenal lingkungan pendidikan
+                    anak usia dini. Pengalaman ini menjadi kesempatan
+                    untuk belajar mendampingi anak, memahami
+                    karakteristik mereka, dan mengenal proses
+                    pembelajaran di taman kanak-kanak.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">💃</div>
+                <h3>Pengajar Tari</h3>
+                <div class="subtitle">
+                    Siswa SMP Kelas VII dan VIII
+                </div>
+                <p>
+                    Saat ini aku memiliki pengalaman mengajar tari
+                    kepada siswa SMP kelas VII dan VIII. Kegiatan
+                    ini membantuku mengembangkan kreativitas,
+                    kesabaran, komunikasi, serta kemampuan
+                    membimbing siswa selama proses latihan.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="card-icon">⚜️</div>
+                <h3>Organisasi Pramuka</h3>
+                <div class="subtitle">
+                    Universitas Negeri Medan
+                </div>
+                <p>
+                    Aktif mengikuti organisasi Pramuka di kampus
+                    sebagai salah satu upaya mengembangkan diri.
+                    Melalui organisasi, aku belajar mengenai
+                    kedisiplinan, tanggung jawab, kerja sama,
+                    dan pentingnya membangun hubungan yang baik
+                    dengan orang lain.
+                </p>
+            </article>
+
+            <article class="card" id="achievement">
+                <div class="card-icon">🏆</div>
+                <h3>Prestasi NCAST</h3>
+                <div class="subtitle">
+                    Lomba Video Edukasi Kesehatan · Harapan III
+                </div>
+                <p>
+                    Berpartisipasi dalam lomba NCAST melalui
+                    pembuatan video edukasi kesehatan dan berhasil
+                    meraih penghargaan Harapan III. Pengalaman ini
+                    menjadi motivasi untuk terus mengembangkan
+                    kreativitas, berani mencoba, dan menghasilkan
+                    karya yang bermanfaat.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- KEMAMPUAN -->
+    <section id="skills">
+        <div class="section-title">
+            <h2>My Personal Growth</h2>
+            <p>Hal-hal yang ingin terus aku kembangkan</p>
+        </div>
+
+        <div class="skills">
+            <span class="skill">♡ Komunikasi</span>
+            <span class="skill">♡ Kerja Sama Tim</span>
+            <span class="skill">♡ Kreativitas</span>
+            <span class="skill">♡ Kedisiplinan</span>
+            <span class="skill">♡ Mengajar</span>
+            <span class="skill">♡ Menari</span>
+            <span class="skill">♡ Mau Terus Belajar</span>
+        </div>
+    </section>
+
+    <!-- TUJUAN DAN KONTAK -->
+    <section class="closing" id="contact">
+        <h2>My Journey, My Growth ♡</h2>
+
+        <p>
+            Perjalananku masih panjang. Aku ingin terus belajar,
+            memperluas pengalaman, dan menjadi pendidik yang kreatif,
+            sabar, serta mampu mendukung perkembangan setiap anak.
+        </p>
+
+        <p style="margin-top: 20px;">
+            Aku percaya setiap langkah kecil memiliki arti.
+            Aku akan terus berusaha, mencoba hal baru, dan
+            berkembang menjadi pribadi yang lebih baik.
+        </p>
+
+        <p style="margin-top: 25px;">
+            Thank you for visiting my portfolio! ♡
+        </p>
+
+        <!-- Tambahkan kontak jika diperlukan -->
+    </section>
+
+    <footer>
+        <p>© 2026 Najwa Khairani Arifin Tumanggor</p>
+        <p>Early Childhood Education · Universitas Negeri Medan</p>
+        <p>Made with ♡ and a little dream</p>
+    </footer>
+
+</body>
+</html>
